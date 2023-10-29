@@ -3,19 +3,15 @@ const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const user = require('./controller/user')
+const productRoute = require('./routes/Admin/adminRoutes')
+const userProducts = require('./routes/User/userRoutes')
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')   
-})
-
-app.post('/createUser', (req, res) => {
-    console.log(req.body)
-    res.json({message: 'user created'})
-})
 
 app.use('/api', user)
+app.use('/api/user', userProducts)
+app.use('/api/admin', productRoute)
 
 
 app.listen(8000, () => {
