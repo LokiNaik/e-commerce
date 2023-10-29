@@ -38,11 +38,6 @@ user.post('/login', async (req, res) => {
     } catch (error) {
         console.log('error', error)
     }
-
-
-
 })
-
-
 
 module.exports = user
